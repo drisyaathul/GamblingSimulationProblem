@@ -21,11 +21,15 @@ public class GamblingSimulator {
          */
         int stackWon = 150;
         int stackLost = 50;
-        int totalAmount=0;
+        System.out.println("Gambler if won ="+stackWon+"$");
+        System.out.println("Gambler if loss ="+stackLost+"$");
+        int totalAmount = 0;
+        int winDays =0;
+        int lostDays =0;
         /*
            Playing the game for 20 days (UC4)
          */
-        for (int days = 1; days <= 20; days++) {
+        for (int days = 1; days <= 30; days++) {
             stackEveryDay = 100;
         /*
            Gambler if won or lost 50% of the stake, would resign for the day (UC3)
@@ -57,18 +61,24 @@ public class GamblingSimulator {
             /*
               * if the Stack of Every day is equal to 150$ else 50$
               * total amount is total stack of month
+              * Counting the Winning and Loosing Days(UC5)
              */
             if(stackEveryDay == stackWon) {
-                System.out.println("Player Has Won Gambler For Day "+days);
+                //System.out.println("Player Has Won Gambler For Day "+days);
                 totalAmount += stackWon;
+                winDays +=1;
             }else {
-                System.out.println("Player Has Loss Gambler For Day "+days);
+                //System.out.println("Player Has Loss Gambler For Day "+days);
                 totalAmount -= stackLost;
+                lostDays +=1;
             }
             /*
-              After 20 days of playing every day would like to know the total amount won or lost (UC4)
+              * After 20 days of playing every day would like to know the total amount won or lost (UC4)
+              * Each month would like to know the days won and lost (UC5)
              */
-            System.out.println("Total Win Price: "+totalAmount + "$");
         }
+        System.out.println("Winning Days : "+winDays+" days");
+        System.out.println("Loosing Days : "+lostDays+" days");
+        System.out.println("Total Win Price: "+totalAmount + "$");
     }
 }
