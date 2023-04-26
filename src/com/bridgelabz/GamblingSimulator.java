@@ -63,6 +63,6 @@ public class GamblingSimulator {
         /*
            After 20 days of playing every day would like to know the total amount won or lost (UC4)
          */
-        System.out.println("Total Win Price: "+totalAmount + "\n");
+        System.out.println("Total Win Price: "+totalAmount + "$");
     }
 }
