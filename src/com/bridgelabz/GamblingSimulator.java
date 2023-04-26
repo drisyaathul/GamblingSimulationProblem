@@ -26,6 +26,7 @@ public class GamblingSimulator {
            Playing the game for 20 days (UC4)
          */
         for (int days = 1; days <= 20; days++) {
+            stackEveryDay = 100;
         /*
            Gambler if won or lost 50% of the stake, would resign for the day (UC3)
          */
@@ -36,33 +37,38 @@ public class GamblingSimulator {
                  */
                 Random random = new Random();
                 int bet = random.nextInt(2);
-                /*
-                   When the Bet wins Bet amount is added to Stack of Everyday
-                */
-                if (bet == 1) {
-                    stackEveryDay += betEveyGame;
-                } else {
-                    /*
-                       When the Bet loose Stack of Every day is deducted by bet amount
-                    */
-                    stackEveryDay -= betEveyGame;
+
+                switch(bet) {
+                    case 1:
+                        /*
+                           When the Bet wins Bet amount is added to Stack of Everyday
+                        */
+                        stackEveryDay += betEveyGame;
+                        break;
+                    default:
+                        /*
+                           When the Bet loose Stack of Every day is deducted by bet amount
+                        */
+                        stackEveryDay -= betEveyGame;
+                        break;
+
                 }
             }
             /*
-              * if the Stack ot Every day is equal to 150$ else 50$
-              * total amount is total stack of every day
+              * if the Stack of Every day is equal to 150$ else 50$
+              * total amount is total stack of month
              */
             if(stackEveryDay == stackWon) {
                 System.out.println("Player Has Won Gambler For Day "+days);
-                totalAmount += stackEveryDay;
+                totalAmount += stackWon;
             }else {
                 System.out.println("Player Has Loss Gambler For Day "+days);
-                totalAmount -= stackEveryDay;
+                totalAmount -= stackLost;
             }
+            /*
+              After 20 days of playing every day would like to know the total amount won or lost (UC4)
+             */
+            System.out.println("Total Win Price: "+totalAmount + "$");
         }
-        /*
-           After 20 days of playing every day would like to know the total amount won or lost (UC4)
-         */
-        System.out.println("Total Win Price: "+totalAmount + "$");
     }
 }
