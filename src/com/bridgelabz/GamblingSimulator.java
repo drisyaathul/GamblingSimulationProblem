@@ -24,7 +24,7 @@ public class GamblingSimulator {
         /*
            Gambler if won or lost 50% of the stake, would resign for the day (UC3)
          */
-        while (stackEveryDay > stackLost && stackEveryDay > stackWon) {
+        while (stackEveryDay > stackLost && stackEveryDay < stackWon) {
             /*
              * Gambler make $1 bet either win or loose $1 (UC2).
              * Using Random to find the Bet wins or lose.
